@@ -1,4 +1,4 @@
-<table *ngIf="(products$ | async) as productsSlice">
+<table class="table" *ngIf="(products$ | async) as productsSlice">
   <thead>
   <tr>
     <th>ID</th>
@@ -12,12 +12,12 @@
     <td>{{item.id}}</td>
     <td>{{item.name}}</td>
     <td>{{item.qty}}</td>
-    <td><a [routerLink]="['edit/'+item.id]"> edit </a></td>
-    <td><a (click)="remove(item.id)"> remove </a></td>
+    <td><a class="btn btn-warning" [routerLink]="['edit/'+item.id]"> edit </a></td>
+    <td><a class="btn btn-danger" (click)="remove(item.id)"> remove </a></td>
   </tr>
   </tbody>
 </table>
 
-<button [routerLink]="['new']"> add product</button>
+<button class="btn btn-primary" [routerLink]="['new']"> add product</button>
 
 <router-outlet></router-outlet>

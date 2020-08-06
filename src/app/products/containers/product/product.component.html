@@ -1,8 +1,15 @@
-<form [formGroup]="productForm">
-  <input type="text" formControlName="name" placeholder="name" />
-  <input type="text" formControlName="qty" placeholder="quantity">
-</form>
+<div class="row">
+  <div class="col">
+    <form [formGroup]="productForm">
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="name" placeholder="name"/>
+        <input class="form-control" type="text" formControlName="qty" placeholder="quantity">
+      </div>
+    </form>
 
-<button (click)="addProduct()" *ngIf="mode== 'NEW'">add product</button>
+    <button class="btn btn-success" (click)="addProduct()" *ngIf="mode== 'NEW'">add product</button>
 
-<button (click)="editProduct()" *ngIf="mode== 'EDIT'">edit product</button>
+    <button class="btn btn-success" (click)="editProduct()" *ngIf="mode== 'EDIT'">edit product</button>
+
+  </div>
+</div>
