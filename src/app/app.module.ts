@@ -30,14 +30,12 @@ const routes: Routes = [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    RouterModule.forRoot(routes),
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    ProductsModule,
-    StoreModule.forRoot({}, {}),
+    BrowserModule,
+    SharedModule,
+    RouterModule.forRoot(routes),
+    ProductsModule
   ],
   bootstrap: [AppComponent]
 })

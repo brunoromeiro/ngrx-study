@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
+import {RemoveProduct} from './store/products.actions';
 
 @Component({
   selector: 'app-products',
@@ -13,10 +14,15 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private store: Store<any>
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.products$ = this.store.select('products');
+  }
+
+  remove(id) {
+    this.store.dispatch(new RemoveProduct(id));
   }
 
 }

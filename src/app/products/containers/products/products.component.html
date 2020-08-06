@@ -1,14 +1,23 @@
-<ul *ngIf="(products$ | async) as productsSlice">
-  <li *ngFor="let item os productsSlice.data">
-    ID: {{item.id}}
-    NAME: {{item.name}}
-    QUANTITY: {{item.qty}}
+<table *ngIf="(products$ | async) as productsSlice">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>QTY</th>
+    <th colspan="2">ACTIONS</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of productsSlice.data">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.qty}}</td>
+    <td><a [routerLink]="['edit/'+item.id]"> edit </a></td>
+    <td><a (click)="remove(item.id)"> remove </a></td>
+  </tr>
+  </tbody>
+</table>
 
-    <a [routerLink]="['edit/'+item.id]"> edit </a>
-    <a (click)="remove(item.id)"> remove </a>
-  </li>
-</ul>
-
-<button [routerLink]="['new']"> add product </button>
+<button [routerLink]="['new']"> add product</button>
 
 <router-outlet></router-outlet>

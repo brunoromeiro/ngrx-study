@@ -3,6 +3,8 @@ import {ProductsComponent} from './containers/products/products.component';
 import {ProductComponent} from './containers/product/product.component';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
+import {StoreModule} from '@ngrx/store';
+import {reducer} from './containers/products/store/products.reduce';
 
 const routes: Routes = [
   {
@@ -28,6 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     SharedModule,
+    StoreModule.forFeature('products', reducer),
     RouterModule.forChild(routes),
   ],
   exports: [
